@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  WAIT_10US                                                            04/22/2021 12:25:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN Wait_10uS.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Wait_10uS.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1                     PUBLIC  MOJA_PROC_W_ASM
+                       2                             PUBLIC INIT_ASM
+                       3                     PUBLIC  ZM
+                       4                     
+                       5     DATSEG          SEGMENT DATA
+----                   6                     RSEG    DATSEG
+0000                   7     ZM:     
+0000                   8             DS 1
+                       9                                     
+                      10     PRGSEG  SEGMENT CODE
+----                  11                     RSEG    PRGSEG
+0000                  12     INIT_ASM:
+                      13     
+0000 750002   F       14                     mov ZM,#10b
+0003 22               15                     ret
+                      16                     
+0004                  17     MOJA_PROC_W_ASM:
+                      18     
+0004 E500     F       19             mov A,ZM
+0006 908008           20                     mov dptr,#8008h
+0009 F0               21             movx @DPTR,A
+                      22     
+000A 22               23             RET
+                      24     
+                      25                     END
+A51 MACRO ASSEMBLER  WAIT_10US                                                            04/22/2021 12:25:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DATSEG . . . . . .  D SEG    0001H       REL=UNIT
+INIT_ASM . . . . .  C ADDR   0000H   R   SEG=PRGSEG
+MOJA_PROC_W_ASM. .  C ADDR   0004H   R   SEG=PRGSEG
+PRGSEG . . . . . .  C SEG    000BH       REL=UNIT
+ZM . . . . . . . .  D ADDR   0000H   R   SEG=DATSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

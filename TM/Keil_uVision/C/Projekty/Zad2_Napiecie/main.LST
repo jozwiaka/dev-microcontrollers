@@ -1,0 +1,70 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              03/18/2021 18:57:13 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          #include "lcd.h"
+   4          #include "mkd51sim.h"
+   5          
+   6          unsigned char xdata POT0 _at_ 0x8005;
+   7          unsigned char xdata POT1 _at_ 0x8006;
+   8          unsigned char xdata POT2 _at_ 0x8007;
+   9          unsigned char xdata PTWE _at_ 0x8008;
+  10          unsigned char xdata PTWY _at_ 0x8009;
+  11          unsigned char xdata tblcw[]="Napiecie = 0   V";
+  12          void main(void) {
+  13   1      unsigned char delay,POT;
+  14   1      float j=0,d1=0,d2=0;
+  15   1      prglcd();
+  16   1      while(1){
+  17   2        if(!(PTWE&0x01))
+  18   2        {
+  19   3          POT0=0;
+  20   3          for(delay=0;delay<200;delay++) _nop_();
+  21   3          POT=POT0;
+  22   3        }
+  23   2        if(!(PTWE&0x02))
+  24   2        {
+  25   3          POT1=0;
+  26   3          for(delay=0;delay<200;delay++) _nop_();
+  27   3          POT=POT1;
+  28   3        }
+  29   2        if(!(PTWE&0x04))
+  30   2        {
+  31   3          POT2=0;
+  32   3          for(delay=0;delay<200;delay++) _nop_();
+  33   3          POT=POT2;
+  34   3        }
+  35   2        j=(float)POT/51; //0-5
+  36   2        tblcw[11]='0'+j;
+  37   2        tblcw[12]='.';
+  38   2        d1=(j-(int)j)*10; //0.0-0.9       1.54345-1=0.5435 -> 5.435 //explicit cast
+  39   2        d2=(d1-(int)d1)*10; //0.00-0.09   5.435-5=0.435 -> 4.35
+  40   2        tblcw[13]='0'+ (unsigned char)d1; //5.435->5 //implicit cast
+  41   2        tblcw[14]='0'+ d2;                //4.35 ->4
+  42   2        disptext(tblcw);
+  43   2      }
+  44   1      }
+  45           
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    348    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     17    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.60.0.0   MAIN                                                              03/18/2021 18:57:13 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

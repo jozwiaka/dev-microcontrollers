@@ -1,0 +1,40 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              03/17/2021 15:35:02 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          #include "lcd.h"
+   4          #include "mkd51sim.h"
+   5          unsigned char xdata POT0 _at_ 0x8005;  
+   6          unsigned char xdata tblcw[]="| OTO PIERWSZY |0    PROGRAM   0";
+   7          void main(void) {
+   8   1      unsigned char delay;
+   9   1      prglcd();
+  10   1      while(1){
+  11   2        POT0=0; 
+  12   2        for(delay=0;delay<200;delay++) _nop_();
+  13   2        tblcw[16]='1'+POT0/100;
+  14   2        disptext(tblcw);
+  15   2       }
+  16   1      } 
+  17           
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     46    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     33    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

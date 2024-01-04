@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Zad2&apos; to &apos;Zad2_MigajacaDioda&apos;" description="Rename resource &apos;Zad2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Zad2" name="Zad2_MigajacaDioda" stamp="1622131448543" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;STM32LAB_BASE_SIM&apos; to &apos;Zad2&apos;" description="Rename resource &apos;STM32LAB_BASE_SIM&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/STM32LAB_BASE_SIM" name="Zad2" stamp="1622134453508" updateReferences="true"/>
+</session>

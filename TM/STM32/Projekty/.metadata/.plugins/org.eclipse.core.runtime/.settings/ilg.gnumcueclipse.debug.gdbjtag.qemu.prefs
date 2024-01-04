@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+gdb.client.commands=set mem inaccessible-by-default off
+gdb.client.executable=arm-none-eabi-gdb
+gdb.client.other=
+gdb.qemu.boardName=STM32F429I-Discovery
+gdb.qemu.deviceName=STM32F429ZI
+gdb.qemu.doDebugInRam=false
+gdb.qemu.doInitialReset=true
+gdb.qemu.doPreRunReset=false
+gdb.qemu.enableSemihosting=false
+gdb.qemu.init.other=
+gdb.qemu.isVerbose=false
+gdb.qemu.preRun.other=
+gdb.server.doStart=true
+gdb.server.executable=${qemu_path}/${qemu_executable}
+gdb.server.other=-d unimp,guest_errors

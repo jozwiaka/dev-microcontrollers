@@ -1,0 +1,79 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              04/10/2021 16:00:05 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          #include "lcd.h"
+   4          #include "mkd51sim.h"
+   5          
+   6          #define CLEAR_GRAPH_MEMORY 2
+   7          #define COPY_SCREEN 1
+   8          
+   9           unsigned char xdata PTWE _at_ 0x8008;   
+  10           unsigned char xdata PTWY _at_ 0x8008;  
+  11           unsigned char xdata PTSEG _at_ 0x8018;   
+  12          
+  13          sbit P1_6 = P1^6;
+  14          int timer=0;
+  15          char light=1;
+  16          
+  17          void main(void) {
+  18   1        // Ustawienie licznika 0 do pracy w trybie 1 i zliczania wewnetrznych impulsów zegarowych o 
+  19   1        //okresie równym 1us
+  20   1        TMOD=1; //=0x01 
+  21   1        TH0=(-2500)>>8;   
+  22   1        TL0=(-2500)&0xff; //=0x3c
+  23   1        // Uruchomienie licznika poprzez ustawienie bitu TR0
+  24   1        TCON=0x10; //TR0=1;
+  25   1        
+  26   1        while(1)
+  27   1        {
+  28   2          if(TF0)
+  29   2          {
+  30   3            //TR0=0; //stop timer0
+  31   3            TF0=0;
+  32   3            TH0=(-2500)>>8;   
+  33   3            TL0=(-2500)&0xff;
+  34   3            timer++;
+  35   3            //TR0=1; //start timer0
+  36   3          }
+  37   2          
+  38   2          if(timer>=200)
+  39   2          {
+  40   3            timer=0;
+  41   3            if(light)
+  42   3            {
+  43   4              P1_6=1;
+  44   4              light=0;
+  45   4            }
+  46   3            else
+  47   3            {
+  48   4              P1_6=0;
+  49   4              light=1;  
+  50   4            }
+  51   3          }
+  52   2        }
+  53   1      }
+  54           
+
+C51 COMPILER V9.60.0.0   MAIN                                                              04/10/2021 16:00:05 PAGE 2   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     67    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

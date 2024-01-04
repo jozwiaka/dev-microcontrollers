@@ -1,0 +1,5 @@
+"Main/ProceduryASM.o"
+"Main/main.o"
+"Main/main_base.o"
+"Main/stm32f4xx_hal_msp.o"
+"Main/stm32f4xx_it.o"

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "C:/Users/arekj/OneDrive/Pulpit/S6/OSM/OSM_Z1_Regulator/build",
+  "command": "C:\\PROGRA~1\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++14 -o CMakeFiles\\a.dir\\src\\main.cpp.obj -c C:\\Users\\arekj\\OneDrive\\Pulpit\\S6\\OSM\\OSM_Z1_Regulator\\src\\main.cpp",
+  "file": "C:/Users/arekj/OneDrive/Pulpit/S6/OSM/OSM_Z1_Regulator/src/main.cpp"
+},
+{
+  "directory": "C:/Users/arekj/OneDrive/Pulpit/S6/OSM/OSM_Z1_Regulator/build",
+  "command": "C:\\PROGRA~1\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++14 -o CMakeFiles\\a.dir\\src\\PID.cpp.obj -c C:\\Users\\arekj\\OneDrive\\Pulpit\\S6\\OSM\\OSM_Z1_Regulator\\src\\PID.cpp",
+  "file": "C:/Users/arekj/OneDrive/Pulpit/S6/OSM/OSM_Z1_Regulator/src/PID.cpp"
+},
+{
+  "directory": "C:/Users/arekj/OneDrive/Pulpit/S6/OSM/OSM_Z1_Regulator/build",
+  "command": "C:\\PROGRA~1\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++14 -o CMakeFiles\\a.dir\\src\\UAR.cpp.obj -c C:\\Users\\arekj\\OneDrive\\Pulpit\\S6\\OSM\\OSM_Z1_Regulator\\src\\UAR.cpp",
+  "file": "C:/Users/arekj/OneDrive/Pulpit/S6/OSM/OSM_Z1_Regulator/src/UAR.cpp"
+}
+]

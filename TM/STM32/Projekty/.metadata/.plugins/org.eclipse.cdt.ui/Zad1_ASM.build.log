@@ -1,0 +1,23 @@
+17:08:48 **** Incremental Build of configuration Debug for project Zad1_ASM ****
+make all 
+Building file: ../Main/ProceduryASM.s
+Invoking: MCU GCC Assembler
+C:\Studia\TM\STM32\Projekty\Zad1_ASM\Debug
+arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -g -o "Main/ProceduryASM.o" "../Main/ProceduryASM.s"
+Finished building: ../Main/ProceduryASM.s
+ 
+Building target: Zad1_ASM.elf
+Invoking: MCU G++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -L"C:\Studia\TM\STM32\Projekty\Zad1_ASM\Drivers" -T"C:/Studia/TM/STM32/Projekty/Zad1_ASM/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -fno-exceptions -fno-rtti -o "Zad1_ASM.elf" @"objects.list"  -lSTM32LIB_SOFTFP_RAMLINK -lm
+Finished building target: Zad1_ASM.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "Zad1_ASM.elf" "Zad1_ASM.bin"
+arm-none-eabi-size "Zad1_ASM.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6048	   1152	   2292	   9492	   2514	Zad1_ASM.elf
+ 
+
+17:08:48 Build Finished (took 757ms)
+

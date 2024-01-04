@@ -1,0 +1,56 @@
+A51 MACRO ASSEMBLER  INWERSJA_DIODY_L8                                                    03/05/2021 09:15:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN Inwersja_diody_L8.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Inwersja_diody_L8.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     ;Dyrektywa tworzaca segment PRGSEG pamieci programu (CODE) zarzadzany przez linkera. Oznacz
+                             enia typow pamieci: BIT, CODE, DATA, IDATA, XDATA
+                       3     PRGSEG  SEGMENT CODE
+                       4     
+                       5     ;Dyrektywa upubliczniajaca (udostepniajaca na zewnatrz pliku - modulu) symbol 
+                       6             PUBLIC  INWERSJAP1_6
+                       7     ;Dyrektywa sprowadzajaca do przestrzeni modulu zewnetrzny symbol ZEZWOLENIE_L8  
+                       8             EXTRN DATA (ZEZWOLENIE_L8)
+                       9     ;Wykorzystanie zdefiniowanego segmnetu programu PRGSEG          
+----                  10             RSEG    PRGSEG
+                      11     ;Etykieta rozpoczynajaca procedure INWERSJAP1_6
+0000                  12     INWERSJAP1_6:
+                      13     ;Odczyt komorki pamieci mlodszego bajtu zmiennej zewnetrznej  ZEZWOLENIE_L8 i wprowdzenie o
+                             dczytanej wartosci do akumulatora (rejestru A)
+0000 E500     F       14             MOV A,ZEZWOLENIE_L8+1
+                      15     ;Skok warunkowy testujacy akumulator, ktory zawiera informacje o zezwoleniu na inwersje dio
+                             dy
+                      16     ; Jesli akumulator rowna sie zero (brak zgody na innwersje L8), to wowczas wykonaj skok do 
+                             etykiety BRAK_ZEZWOLENIA. W przeciwnym wypadku skok nie zostanie wykonany.
+0002 6002             17             JZ BRAK_ZEZWOLENIA
+                      18     ; Inwersja bitu 6 portu P1, ktory steruje dioda L8
+0004 B296             19             CPL P1.6 
+0006                  20     BRAK_ZEZWOLENIA:
+                      21     ;Powrot z procdury (podprogramu) - skok bezwarunkowy pod adres zapisany na stosie
+0006 22               22             RET
+                      23     ;Dyrektywa asemblera konczaca kod zrodlowy
+                      24             END
+A51 MACRO ASSEMBLER  INWERSJA_DIODY_L8                                                    03/05/2021 09:15:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BRAK_ZEZWOLENIA. .  C ADDR   0006H   R   SEG=PRGSEG
+INWERSJAP1_6 . . .  C ADDR   0000H   R   SEG=PRGSEG
+P1 . . . . . . . .  D ADDR   0090H   A   
+PRGSEG . . . . . .  C SEG    0007H       REL=UNIT
+ZEZWOLENIE_L8. . .  D ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

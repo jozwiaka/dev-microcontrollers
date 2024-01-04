@@ -1,0 +1,6 @@
+13:38:36 **** Incremental Build of configuration Debug for project STM32LAB_BASE_SIM ****
+make all 
+make: Nothing to be done for 'all'.
+
+13:38:37 Build Finished (took 175ms)
+

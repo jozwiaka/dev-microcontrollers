@@ -1,0 +1,47 @@
+11:54:33 **** Build of configuration Debug for project Zad2_ASM ****
+make all 
+Building file: ../Main/ProceduryASM.s
+Invoking: MCU GCC Assembler
+C:\Studia\TM\STM32_projekty\Zad2_ASM\Debug
+arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -g -o "Main/ProceduryASM.o" "../Main/ProceduryASM.s"
+Finished building: ../Main/ProceduryASM.s
+ 
+Building file: ../Main/main.c
+Invoking: MCU GCC Compiler
+C:\Studia\TM\STM32_projekty\Zad2_ASM\Debug
+arm-none-eabi-gcc  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F429ZITx -DVECT_TAB_SRAM -DUSE_STM32F429I_DISCO -DSTM32F429xx -DUSE_HAL_DRIVER -DSTM32F429I_DISC1 -DSTM32F4 -DSTM32 -DDEBUG -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/BSP" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/CMSIS" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/STM32F4xx_HAL_Driver" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/Utils" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Main" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"Main/main.d" -MT"Main/main.o" -o "Main/main.o" "../Main/main.c"
+Finished building: ../Main/main.c
+ 
+Building file: ../Main/main_base.c
+Invoking: MCU GCC Compiler
+C:\Studia\TM\STM32_projekty\Zad2_ASM\Debug
+arm-none-eabi-gcc  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F429ZITx -DVECT_TAB_SRAM -DUSE_STM32F429I_DISCO -DSTM32F429xx -DUSE_HAL_DRIVER -DSTM32F429I_DISC1 -DSTM32F4 -DSTM32 -DDEBUG -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/BSP" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/CMSIS" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/STM32F4xx_HAL_Driver" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/Utils" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Main" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"Main/main_base.d" -MT"Main/main_base.o" -o "Main/main_base.o" "../Main/main_base.c"
+Finished building: ../Main/main_base.c
+ 
+Building file: ../Main/stm32f4xx_hal_msp.c
+Invoking: MCU GCC Compiler
+C:\Studia\TM\STM32_projekty\Zad2_ASM\Debug
+arm-none-eabi-gcc  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F429ZITx -DVECT_TAB_SRAM -DUSE_STM32F429I_DISCO -DSTM32F429xx -DUSE_HAL_DRIVER -DSTM32F429I_DISC1 -DSTM32F4 -DSTM32 -DDEBUG -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/BSP" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/CMSIS" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/STM32F4xx_HAL_Driver" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/Utils" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Main" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"Main/stm32f4xx_hal_msp.d" -MT"Main/stm32f4xx_hal_msp.o" -o "Main/stm32f4xx_hal_msp.o" "../Main/stm32f4xx_hal_msp.c"
+Finished building: ../Main/stm32f4xx_hal_msp.c
+ 
+Building file: ../Main/stm32f4xx_it.c
+Invoking: MCU GCC Compiler
+C:\Studia\TM\STM32_projekty\Zad2_ASM\Debug
+arm-none-eabi-gcc  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F429ZITx -DVECT_TAB_SRAM -DUSE_STM32F429I_DISCO -DSTM32F429xx -DUSE_HAL_DRIVER -DSTM32F429I_DISC1 -DSTM32F4 -DSTM32 -DDEBUG -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/BSP" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/CMSIS" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/STM32F4xx_HAL_Driver" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Drivers/Utils" -I"C:/Studia/TM/STM32_projekty/Zad2_ASM/Main" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"Main/stm32f4xx_it.d" -MT"Main/stm32f4xx_it.o" -o "Main/stm32f4xx_it.o" "../Main/stm32f4xx_it.c"
+Finished building: ../Main/stm32f4xx_it.c
+ 
+Building target: Zad2_ASM.elf
+Invoking: MCU G++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -L"C:\Studia\TM\STM32_projekty\Zad2_ASM\Drivers" -T"C:/Studia/TM/STM32_projekty/Zad2_ASM/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -fno-exceptions -fno-rtti -o "Zad2_ASM.elf" @"objects.list"  -lSTM32LIB_SOFTFP_RAMLINK -lm
+Finished building target: Zad2_ASM.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "Zad2_ASM.elf" "Zad2_ASM.bin"
+arm-none-eabi-size "Zad2_ASM.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6132	   1128	   2292	   9552	   2550	Zad2_ASM.elf
+ 
+
+11:54:36 Build Finished (took 2s.660ms)
+

@@ -1,0 +1,3 @@
+C:/dev/OSM/Vector_Int/build/CMakeFiles/a.dir
+C:/dev/OSM/Vector_Int/build/CMakeFiles/edit_cache.dir
+C:/dev/OSM/Vector_Int/build/CMakeFiles/rebuild_cache.dir

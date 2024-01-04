@@ -1,0 +1,78 @@
+A51 MACRO ASSEMBLER  ZAD1                                                                 06/08/2021 14:11:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN Zad1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Zad1.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     LOOP:
+0000 908008            2     MOV DPTR,#8008H
+                       3     ; ALTERNATIVE APPROACH
+                       4     ; PTIO EQU 8008H
+                       5     ; MOV DPTR,#PTIO
+0003 E0                6     MOVX A,@DPTR
+0004 20E021            7     JB ACC.0,X0_OFF
+                       8     
+0007 ED                9     mov A,R5
+                      10     
+0008 6002             11     JZ SET128
+000A 7004             12     JNZ SET0
+                      13     
+000C                  14     SET128:
+000C 7480             15     MOV A,#128
+000E 7002             16     JNZ OMITSET0 
+                      17     
+0010                  18     SET0:
+0010 7400             19     MOV A,#0
+                      20     
+0012                  21     OMITSET0:
+0012 908009           22     MOV DPTR,#8009H
+0015 F0               23     MOVX @DPTR,A
+0016 FD               24     MOV R5,A
+                      25     
+0017 9001FF           26     MOV DPTR,#-65025
+                      27     ; ALTERNATIVE APPROACH
+                      28     ; MOV R7,#-255
+                      29     ; MOV R6,#-255
+                      30     ; MOV DPL,R7
+                      31     ; MOV DPH,R6
+001A                  32     WAIT_LOOP:
+001A 00               33     NOP
+001B 00               34     NOP
+001C 00               35     NOP
+001D 00               36     NOP
+001E A3               37     INC DPTR
+001F E583             38     MOV A,DPH
+0021 4582             39     ORL A,DPL
+0023 70F5             40     JNZ WAIT_LOOP
+0025 908009           41     MOV DPTR,#8009H
+0028                  42     X0_OFF:
+0028 7400             43     MOV A,#0
+002A F0               44     MOVX @DPTR,A
+002B 80D3             45     SJMP LOOP
+                      46     END
+A51 MACRO ASSEMBLER  ZAD1                                                                 06/08/2021 14:11:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+OMITSET0 . . . . .  C ADDR   0012H   A   
+SET0 . . . . . . .  C ADDR   0010H   A   
+SET128 . . . . . .  C ADDR   000CH   A   
+WAIT_LOOP. . . . .  C ADDR   001AH   A   
+X0_OFF . . . . . .  C ADDR   0028H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

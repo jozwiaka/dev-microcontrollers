@@ -1,0 +1,35 @@
+A51 MACRO ASSEMBLER  NEW                                                                  05/13/2021 09:28:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN new.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE new.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0
+                       2             
+0000 D296              3             setb p1.6
+0002                   4     loop:
+0002 908008            5             mov dptr,#8008h 
+0005 E0                6             movx a,@dptr  
+                       7             
+0006 80FA              8             sjmp loop
+                       9             
+                      10     end
+A51 MACRO ASSEMBLER  NEW                                                                  05/13/2021 09:28:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0002H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

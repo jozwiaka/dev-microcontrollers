@@ -1,0 +1,37 @@
+A51 MACRO ASSEMBLER  TEST                                                                 05/06/2021 16:45:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN test.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE test.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;dioda l7 mruga co 0.5s
+0000 00                2     nop
+0001 D297              3     setb P1.7
+0003 D296              4     setb P1.6
+0005 7401              5     mov a,#1
+0007 908008            6     mov dptr,#8008h
+000A F0                7     movx @dptr,a
+                       8     
+000B                   9     loop:
+                      10     
+000B 80FE             11     sjmp loop
+                      12     end
+A51 MACRO ASSEMBLER  TEST                                                                 05/06/2021 16:45:21 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   000BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

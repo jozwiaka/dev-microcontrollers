@@ -1,0 +1,6 @@
+"main.obj",
+"Zad2.obj",
+"lcd.obj" 
+TO "mkd51sim" 
+CODE( 0X0000-0X0FFF )
+XDATA( 0X1000-0X1FFF )

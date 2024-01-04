@@ -1,0 +1,79 @@
+A51 MACRO ASSEMBLER  LICZASM                                                              02/15/2022 12:16:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN liczASM.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE liczASM.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     PRGSEG  SEGMENT CODE
+----                   2     RSEG    PRGSEG
+                       3     
+                       4     PUBLIC LICZ
+                       5     
+0000                   6     LICZ:
+0000 7900              7     MOV R1,#0
+0002                   8     LOOP:
+0002 908008            9     MOV DPTR,#8008H
+0005 E0               10     MOVX A,@DPTR
+0006 20E00B           11     JB ACC.0,LICZ_DO_PRZODU
+                      12     
+                      13     ; LICZ_DO_TYLU:
+0009 E9               14     MOV A,R1
+000A 908009           15     MOV DPTR,#8009H
+000D F0               16     MOVX @DPTR,A
+000E 600B             17     JZ KONIEC_LICZENIA
+0010 14               18     DEC A
+0011 F9               19     MOV R1,A
+0012 8007             20     SJMP KONIEC_LICZENIA
+                      21     
+0014                  22     LICZ_DO_PRZODU:
+0014 E9               23     MOV A,R1
+0015 908009           24     MOV DPTR,#8009H
+0018 F0               25     MOVX @DPTR,A
+0019 04               26     INC A
+001A F9               27     MOV R1,A
+                      28     
+001B                  29     KONIEC_LICZENIA:
+001B 9001FF           30     MOV DPTR,#-65025
+001E                  31     WAIT_LOOP:
+001E 00               32     NOP
+001F 00               33     NOP
+0020 00               34     NOP
+0021 00               35     NOP
+0022 00               36     NOP
+0023 00               37     NOP
+0024 00               38     NOP
+0025 00               39     NOP
+0026 A3               40     INC DPTR
+0027 E583             41     MOV A,DPH
+0029 4582             42     ORL A,DPL
+002B 70F1             43     JNZ WAIT_LOOP
+002D 80D3             44     SJMP LOOP
+                      45         
+002F 22               46     RET
+                      47     END
+A51 MACRO ASSEMBLER  LICZASM                                                              02/15/2022 12:16:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+KONIEC_LICZENIA. .  C ADDR   001BH   R   SEG=PRGSEG
+LICZ . . . . . . .  C ADDR   0000H   R   SEG=PRGSEG
+LICZ_DO_PRZODU . .  C ADDR   0014H   R   SEG=PRGSEG
+LOOP . . . . . . .  C ADDR   0002H   R   SEG=PRGSEG
+PRGSEG . . . . . .  C SEG    0030H       REL=UNIT
+WAIT_LOOP. . . . .  C ADDR   001EH   R   SEG=PRGSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

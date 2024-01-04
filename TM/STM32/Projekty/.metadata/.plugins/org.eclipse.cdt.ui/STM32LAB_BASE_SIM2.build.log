@@ -1,0 +1,17 @@
+23:30:16 **** Build of configuration Debug for project STM32LAB_BASE_SIM2 ****
+make all 
+Building target: STM32LAB_BASE_SIM2.elf
+Invoking: MCU G++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -L"C:\Studia\TM\STM32_projekty\STM32LAB_BASE_SIM2\Drivers" -T"C:/Studia/TM/STM32_projekty/STM32LAB_BASE_SIM2/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -fno-exceptions -fno-rtti -o "STM32LAB_BASE_SIM2.elf" @"objects.list"  -lSTM32LIB_SOFTFP_RAMLINK -lm
+Finished building target: STM32LAB_BASE_SIM2.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "STM32LAB_BASE_SIM2.elf" "STM32LAB_BASE_SIM2.bin"
+arm-none-eabi-size "STM32LAB_BASE_SIM2.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6120	   1128	   2300	   9548	   254c	STM32LAB_BASE_SIM2.elf
+ 
+
+23:30:17 Build Finished (took 891ms)
+

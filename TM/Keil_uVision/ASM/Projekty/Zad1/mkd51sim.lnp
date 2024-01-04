@@ -1,0 +1,8 @@
+"lcd.obj",
+"main.obj",
+"Wait_10uS.obj",
+"Inwersja_diody_L8.obj",
+"asm.obj" 
+TO "mkd51sim" 
+CODE( 0X0000-0X0FFF )
+XDATA( 0X1000-0X1FFF )

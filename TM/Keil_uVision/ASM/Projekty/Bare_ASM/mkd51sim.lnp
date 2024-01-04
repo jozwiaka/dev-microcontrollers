@@ -1,0 +1,5 @@
+"main.obj",
+"Wait_10uS.obj" 
+TO "mkd51sim" 
+CODE( 0X0000-0X0FFF )
+XDATA( 0X1000-0X1FFF )

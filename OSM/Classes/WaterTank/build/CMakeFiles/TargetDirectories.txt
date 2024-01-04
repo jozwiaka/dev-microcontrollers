@@ -1,0 +1,3 @@
+C:/Users/arekj/OneDrive/Pulpit/WaterTank/build/CMakeFiles/a.dir
+C:/Users/arekj/OneDrive/Pulpit/WaterTank/build/CMakeFiles/edit_cache.dir
+C:/Users/arekj/OneDrive/Pulpit/WaterTank/build/CMakeFiles/rebuild_cache.dir

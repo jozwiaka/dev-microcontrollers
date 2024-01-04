@@ -1,0 +1,82 @@
+A51 MACRO ASSEMBLER  ASM                                                                  06/10/2021 19:41:06 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN asm.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE asm.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     PRGSEG  SEGMENT CODE
+----                   2     RSEG    PRGSEG
+                       3     PUBLIC _SHOWBUTTONONL8
+                       4     
+0000                   5     _SHOWBUTTONONL8:
+0000 BF0004            6     CJNE R7,#0,DALEJ0
+0003 7F01              7     MOV R7,#1
+0005 8023              8     SJMP CONTINUE
+0007                   9     DALEJ0:
+0007 BF0104           10     CJNE R7,#1,DALEJ1
+000A 7F02             11     MOV R7,#2
+000C 801C             12     SJMP CONTINUE
+000E                  13     DALEJ1:
+000E BF0204           14     CJNE R7,#2,DALEJ2
+0011 7F04             15     MOV R7,#4
+0013 8015             16     SJMP CONTINUE
+0015                  17     DALEJ2:
+0015 BF0304           18     CJNE R7,#3,DALEJ3
+0018 7F08             19     MOV R7,#8
+001A 8000             20     SJMP DALEJ3
+001C                  21     DALEJ3:
+001C BF0404           22     CJNE R7,#4,DALEJ4
+001F 7F10             23     MOV R7,#16
+0021 8000             24     SJMP DALEJ4
+0023                  25     DALEJ4:
+0023 BF0504           26     CJNE R7,#5,CONTINUE
+0026 7F20             27     MOV R7,#32
+0028 8000             28     SJMP CONTINUE
+                      29     
+002A                  30     CONTINUE:
+002A 79FF             31     MOV R1,#255
+002C E9               32     MOV A,R1
+002D 9F               33     SUBB A,R7
+002E FA               34     MOV R2,A
+002F 908008           35     MOV DPTR,#8008H
+0032 E0               36     MOVX A,@DPTR
+                      37     
+0033 6A               38     XRL A,R2
+0034 7004             39     JNZ DIODE_OFF
+0036 D296             40     SETB P1.6
+0038 8005             41     SJMP END_OPERATION
+003A                  42     DIODE_OFF:
+003A 759000           43     MOV P1,#0
+003D 8000             44     SJMP END_OPERATION
+                      45     
+003F                  46     END_OPERATION:
+003F 22               47     RET
+                      48     END
+A51 MACRO ASSEMBLER  ASM                                                                  06/10/2021 19:41:06 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONTINUE . . . . .  C ADDR   002AH   R   SEG=PRGSEG
+DALEJ0 . . . . . .  C ADDR   0007H   R   SEG=PRGSEG
+DALEJ1 . . . . . .  C ADDR   000EH   R   SEG=PRGSEG
+DALEJ2 . . . . . .  C ADDR   0015H   R   SEG=PRGSEG
+DALEJ3 . . . . . .  C ADDR   001CH   R   SEG=PRGSEG
+DALEJ4 . . . . . .  C ADDR   0023H   R   SEG=PRGSEG
+DIODE_OFF. . . . .  C ADDR   003AH   R   SEG=PRGSEG
+END_OPERATION. . .  C ADDR   003FH   R   SEG=PRGSEG
+P1 . . . . . . . .  D ADDR   0090H   A   
+PRGSEG . . . . . .  C SEG    0040H       REL=UNIT
+_SHOWBUTTONONL8. .  C ADDR   0000H   R   SEG=PRGSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

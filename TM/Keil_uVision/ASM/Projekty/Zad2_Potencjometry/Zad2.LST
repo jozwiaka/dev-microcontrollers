@@ -1,0 +1,72 @@
+A51 MACRO ASSEMBLER  ZAD2                                                                 05/13/2021 17:41:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN Zad2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Zad2.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     PRGSEG  SEGMENT CODE
+----                   2     RSEG    PRGSEG
+                       3     
+                       4     PUBLIC _GETADC
+                       5     
+0000                   6     _GETADC:
+0000 90FF9C            7     MOV DPTR,#-100
+0003                   8     WAIT_LOOP:
+0003 00                9     NOP
+0004 00               10     NOP
+0005 00               11     NOP
+0006 00               12     NOP
+0007 A3               13     INC DPTR
+0008 E583             14     MOV A,DPH
+000A 4582             15     ORL A,DPL
+000C 70F5             16     JNZ WAIT_LOOP
+                      17     
+000E 7400             18     MOV A,#0
+0010 5F               19     ANL A,R7
+0011 700A             20     JNZ POT0
+0013 7401             21     MOV A,#1
+0015 5F               22     ANL A,R7
+0016 700A             23     JNZ POT1
+0018 7402             24     MOV A,#2
+001A 5F               25     ANL A,R7
+001B 700A             26     JNZ POT2
+001D                  27     POT0:
+001D 908005           28     MOV DPTR,#8005H
+0020 800A             29     SJMP KONIEC_WYBORU_POTENCJOMETRU
+0022                  30     POT1:
+0022 908006           31     MOV DPTR,#8006H
+0025 8005             32     SJMP KONIEC_WYBORU_POTENCJOMETRU
+0027                  33     POT2:
+0027 908007           34     MOV DPTR,#8007H
+002A 8000             35     SJMP KONIEC_WYBORU_POTENCJOMETRU
+002C                  36     KONIEC_WYBORU_POTENCJOMETRU:
+002C E0               37     MOVX A,@DPTR
+002D FF               38     MOV R7,A
+002E 22               39     RET
+                      40     END
+A51 MACRO ASSEMBLER  ZAD2                                                                 05/13/2021 17:41:33 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                      T Y P E  V A L U E   ATTRIBUTES
+
+DPH . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . .  D ADDR   0082H   A   
+KONIEC_WYBORU_POTENCJOMETRU  C ADDR   002CH   R   SEG=PRGSEG
+POT0. . . . . . . . . . . .  C ADDR   001DH   R   SEG=PRGSEG
+POT1. . . . . . . . . . . .  C ADDR   0022H   R   SEG=PRGSEG
+POT2. . . . . . . . . . . .  C ADDR   0027H   R   SEG=PRGSEG
+PRGSEG. . . . . . . . . . .  C SEG    002FH       REL=UNIT
+WAIT_LOOP . . . . . . . . .  C ADDR   0003H   R   SEG=PRGSEG
+_GETADC . . . . . . . . . .  C ADDR   0000H   R   SEG=PRGSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,144 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/10/2021  16:00:05  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj TO mkd51sim CODE (0X0000-0X0FFF) XDATA (0X1000-0X1FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  mkd51sim (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?MAIN
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+                    0000H     8008H                  *** GAP ***
+            XDATA   8008H     0001H     ABSOLUTE     
+* OVERLAP * XDATA   8008H     0001H     ABSOLUTE     
+                    8009H     000FH                  *** GAP ***
+            XDATA   8018H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0043H     UNIT         ?PR?MAIN?MAIN
+            CODE    08CFH     0008H     UNIT         ?C_INITSEG
+                    08D7H     0729H                  *** GAP ***
+            CODE    1000H     0001H     ABSOLUTE     
+                    1001H     0FFFH                  *** GAP ***
+            CODE    2000H     0001H     ABSOLUTE     
+                    2001H     017FH                  *** GAP ***
+            CODE    2180H     0001H     ABSOLUTE     
+                    2181H     017EH                  *** GAP ***
+            CODE    22FFH     0001H     ABSOLUTE     
+                    2300H     0080H                  *** GAP ***
+            CODE    2380H     0001H     ABSOLUTE     
+
+
+
+OVERLAY MAP OF MODULE:   mkd51sim (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2021  16:00:05  PAGE 2
+
+
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  mkd51sim (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  X:8018H         PUBLIC        PTSEG
+  D:00A8H         PUBLIC        IE
+  C:2000H         PUBLIC        POT0_START
+  C:2180H         PUBLIC        POT1_START
+  B:0090H.6       PUBLIC        P1_6
+  C:22FFH         PUBLIC        POT2_START
+  D:00B8H         PUBLIC        IP
+  D:0008H         PUBLIC        light
+  D:0009H         PUBLIC        timer
+  C:088CH         PUBLIC        main
+  C:1000H         PUBLIC        Persistend7sLED
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  X:8008H         PUBLIC        PTWE
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  X:8008H         PUBLIC        PTWY
+  D:00C8H         PUBLIC        T2CON
+  C:2380H         PUBLIC        POT7LED_START
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:088CH         LINE#         17
+  C:088CH         LINE#         20
+  C:088FH         LINE#         21
+  C:0892H         LINE#         22
+  C:0895H         LINE#         24
+  C:0898H         LINE#         26
+  C:0898H         LINE#         27
+  C:0898H         LINE#         28
+  C:089BH         LINE#         29
+  C:089BH         LINE#         31
+  C:089DH         LINE#         32
+  C:08A0H         LINE#         33
+  C:08A3H         LINE#         34
+  C:08ABH         LINE#         36
+  C:08ABH         LINE#         38
+  C:08B8H         LINE#         39
+  C:08B8H         LINE#         40
+  C:08BDH         LINE#         41
+  C:08C1H         LINE#         42
+  C:08C1H         LINE#         43
+  C:08C3H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2021  16:00:05  PAGE 3
+
+
+  C:08C6H         LINE#         45
+  C:08C8H         LINE#         47
+  C:08C8H         LINE#         48
+  C:08CAH         LINE#         49
+  C:08CDH         LINE#         50
+  C:08CDH         LINE#         51
+  C:08CDH         LINE#         52
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+*** WARNING L6: XDATA SPACE MEMORY OVERLAP
+    FROM:    8008H
+    TO:      8008H
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004AH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=3 code=223
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

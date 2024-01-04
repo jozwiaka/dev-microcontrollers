@@ -1,0 +1,51 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              03/17/2021 14:10:41 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          #include "lcd.h"
+   4          #include "mkd51sim.h"
+   5           unsigned char xdata PTWE _at_ 0x8008;
+   6           unsigned char xdata PTWY _at_ 0x8009;
+   7           unsigned char xdata PTSEG _at_ 0x8018;
+   8           unsigned char licznik=0;
+   9           unsigned int licz_petli=0;
+  10           unsigned char TABLICA[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};//0-9 //gfedcba
+  11           void main(void) {
+  12   1      
+  13   1          while(1){
+  14   2              if(PTWE&2){ //true niewcisniety=true
+  15   3                  licznik++;
+  16   3              }
+  17   2              else {
+  18   3                  licznik--;
+  19   3              }
+  20   2              PTWY=licznik;
+  21   2              
+  22   2              for(licz_petli=0;licz_petli<10000;licz_petli++){
+  23   3                  PTSEG=TABLICA[licznik%10];
+  24   3              }
+  25   2              
+  26   2          }
+  27   1      }
+  28           
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     13    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

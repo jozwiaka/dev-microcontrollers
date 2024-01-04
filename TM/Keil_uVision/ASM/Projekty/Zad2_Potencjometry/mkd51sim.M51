@@ -1,0 +1,329 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/06/2021  13:07:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj, Zad2.obj, lcd.obj TO mkd51sim CODE (0X0000-0X0FFF) XDATA (0X1000-0X1FFF)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  Zad2.obj (ZAD2)
+  lcd.obj (LCD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?CASTF)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  mkd51sim (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?MAIN
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+                    0000H     1000H                  *** GAP ***
+            XDATA   1000H     0011H     UNIT         ?XD?MAIN
+                    1011H     6FF4H                  *** GAP ***
+            XDATA   8005H     0001H     ABSOLUTE     
+            XDATA   8006H     0001H     ABSOLUTE     
+            XDATA   8007H     0001H     ABSOLUTE     
+            XDATA   8008H     0001H     ABSOLUTE     
+                    8009H     0007H                  *** GAP ***
+            XDATA   8010H     0001H     ABSOLUTE     
+            XDATA   8011H     0001H     ABSOLUTE     
+            XDATA   8012H     0001H     ABSOLUTE     
+            XDATA   8013H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     036BH     UNIT         ?C?LIB_CODE
+            CODE    0B6BH     011FH     UNIT         ?PR?MAIN?MAIN
+            CODE    0C8AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0D16H     004DH     UNIT         ?PR?_DISPTEXT?LCD
+            CODE    0D63H     0040H     UNIT         ?PR?PRGLCD?LCD
+            CODE    0DA3H     002FH     UNIT         PRGSEG
+            CODE    0DD2H     001BH     UNIT         ?C_INITSEG
+            CODE    0DEDH     000FH     UNIT         ?PR?BUSYLCD?LCD
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2021  13:07:54  PAGE 2
+
+
+            CODE    0DFCH     000BH     UNIT         ?PR?_OPZ?LCD
+            CODE    0E07H     000AH     UNIT         ?PR?_ADRLCD?LCD
+                    0E11H     01EFH                  *** GAP ***
+            CODE    1000H     0001H     ABSOLUTE     
+                    1001H     0FFFH                  *** GAP ***
+            CODE    2000H     0001H     ABSOLUTE     
+                    2001H     017FH                  *** GAP ***
+            CODE    2180H     0001H     ABSOLUTE     
+                    2181H     017EH                  *** GAP ***
+            CODE    22FFH     0001H     ABSOLUTE     
+                    2300H     0080H                  *** GAP ***
+            CODE    2380H     0001H     ABSOLUTE     
+
+
+
+OVERLAY MAP OF MODULE:   mkd51sim (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?PRGLCD?LCD
+  +--> ?PR?_DISPTEXT?LCD
+
+?PR?PRGLCD?LCD
+  +--> ?PR?_OPZ?LCD
+  +--> ?PR?BUSYLCD?LCD
+
+?PR?_DISPTEXT?LCD
+  +--> ?PR?_ADRLCD?LCD
+  +--> ?PR?BUSYLCD?LCD
+
+?PR?_ADRLCD?LCD
+  +--> ?PR?BUSYLCD?LCD
+
+
+
+SYMBOL TABLE OF MODULE:  mkd51sim (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:2000H         PUBLIC        POT0_START
+  C:2180H         PUBLIC        POT1_START
+  C:22FFH         PUBLIC        POT2_START
+  D:00B8H         PUBLIC        IP
+  X:1000H         PUBLIC        tblcw
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2021  13:07:54  PAGE 3
+
+
+  X:8005H         PUBLIC        POT0
+  X:8006H         PUBLIC        POT1
+  X:8007H         PUBLIC        POT2
+  C:0B6BH         PUBLIC        main
+  C:1000H         PUBLIC        Persistend7sLED
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  X:8008H         PUBLIC        PTWE
+  D:0008H         PUBLIC        f
+  D:00C8H         PUBLIC        T2CON
+  C:2380H         PUBLIC        POT7LED_START
+  D:000CH         PUBLIC        POT
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0B6BH         LINE#         14
+  C:0B6BH         LINE#         15
+  C:0B6BH         LINE#         16
+  C:0B6EH         LINE#         17
+  C:0B6EH         LINE#         18
+  C:0B6EH         LINE#         19
+  C:0B75H         LINE#         20
+  C:0B75H         LINE#         21
+  C:0B7AH         LINE#         22
+  C:0B80H         LINE#         23
+  C:0B80H         LINE#         24
+  C:0B87H         LINE#         25
+  C:0B87H         LINE#         26
+  C:0B8CH         LINE#         27
+  C:0B93H         LINE#         28
+  C:0B93H         LINE#         29
+  C:0B9AH         LINE#         30
+  C:0B9AH         LINE#         31
+  C:0B9FH         LINE#         32
+  C:0BA6H         LINE#         33
+  C:0BA6H         LINE#         34
+  C:0BBEH         LINE#         35
+  C:0BD8H         LINE#         36
+  C:0BDCH         LINE#         37
+  C:0C14H         LINE#         38
+  C:0C2EH         LINE#         39
+  C:0C66H         LINE#         40
+  C:0C80H         LINE#         41
+  C:0C87H         LINE#         42
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ZAD2
+  C:0DA3H         SEGMENT       PRGSEG
+  C:0DA3H         PUBLIC        _GETADC
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  C:0DCFH         SYMBOL        KONIEC_WYBORU_POTENCJOMETRU
+  C:0DC0H         SYMBOL        POT0
+  C:0DC5H         SYMBOL        POT1
+  C:0DCAH         SYMBOL        POT2
+  C:0DA6H         SYMBOL        WAIT_LOOP
+  C:0DA3H         LINE#         7
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2021  13:07:54  PAGE 4
+
+
+  C:0DA6H         LINE#         9
+  C:0DA7H         LINE#         10
+  C:0DA8H         LINE#         11
+  C:0DA9H         LINE#         12
+  C:0DAAH         LINE#         13
+  C:0DABH         LINE#         14
+  C:0DADH         LINE#         15
+  C:0DAFH         LINE#         16
+  C:0DB1H         LINE#         18
+  C:0DB3H         LINE#         19
+  C:0DB4H         LINE#         20
+  C:0DB6H         LINE#         21
+  C:0DB8H         LINE#         22
+  C:0DB9H         LINE#         23
+  C:0DBBH         LINE#         24
+  C:0DBDH         LINE#         25
+  C:0DBEH         LINE#         26
+  C:0DC0H         LINE#         28
+  C:0DC3H         LINE#         29
+  C:0DC5H         LINE#         31
+  C:0DC8H         LINE#         32
+  C:0DCAH         LINE#         34
+  C:0DCDH         LINE#         35
+  C:0DCFH         LINE#         37
+  C:0DD0H         LINE#         38
+  C:0DD1H         LINE#         39
+  -------         ENDMOD        ZAD2
+
+  -------         MODULE        LCD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0D63H         PUBLIC        prglcd
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  X:8012H         PUBLIC        ctrlr
+  X:8013H         PUBLIC        datr
+  X:8010H         PUBLIC        ctrlw
+  X:8011H         PUBLIC        datw
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0DFCH         PUBLIC        _opz
+  D:00C8H         PUBLIC        T2CON
+  C:0E07H         PUBLIC        _adrlcd
+  C:0D16H         PUBLIC        _disptext
+  C:0DF1H         PUBLIC        busylcd
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _OPZ
+  D:0006H         SYMBOL        x
+  C:0DFCH         LINE#         16
+  C:0DFCH         LINE#         17
+  C:0E06H         LINE#         18
+  -------         ENDPROC       _OPZ
+  -------         PROC          L?0019
+  -------         ENDPROC       L?0019
+  -------         PROC          BUSYLCD
+  C:0DF1H         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2021  13:07:54  PAGE 5
+
+
+  C:0DF1H         LINE#         20
+  C:0DFBH         LINE#         21
+  -------         ENDPROC       BUSYLCD
+  -------         PROC          _ADRLCD
+  D:0007H         SYMBOL        adres
+  C:0E07H         LINE#         22
+  C:0E07H         LINE#         23
+  C:0E0EH         LINE#         24
+  -------         ENDPROC       _ADRLCD
+  -------         PROC          _DISPTEXT
+  D:0004H         SYMBOL        wsk
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0D16H         LINE#         26
+  C:0D1AH         LINE#         28
+  C:0D1FH         LINE#         29
+  C:0D29H         LINE#         30
+  C:0D32H         LINE#         31
+  C:0D37H         LINE#         32
+  C:0D3AH         LINE#         33
+  C:0D3DH         LINE#         34
+  C:0D42H         LINE#         35
+  C:0D4EH         LINE#         36
+  C:0D57H         LINE#         37
+  C:0D5CH         LINE#         38
+  C:0D5FH         LINE#         39
+  C:0D62H         LINE#         40
+  -------         ENDPROC       _DISPTEXT
+  -------         PROC          PRGLCD
+  C:0D63H         LINE#         42
+  C:0D63H         LINE#         43
+  C:0D6AH         LINE#         44
+  C:0D70H         LINE#         45
+  C:0D77H         LINE#         46
+  C:0D7AH         LINE#         47
+  C:0D81H         LINE#         48
+  C:0D84H         LINE#         49
+  C:0D87H         LINE#         50
+  C:0D89H         LINE#         51
+  C:0D8CH         LINE#         52
+  C:0D8EH         LINE#         53
+  C:0D91H         LINE#         54
+  C:0D97H         LINE#         55
+  C:0D9AH         LINE#         56
+  C:0DA0H         LINE#         57
+  -------         ENDPROC       PRGLCD
+  -------         ENDMOD        LCD
+
+  -------         MODULE        ?C?FPADD
+  C:0807H         PUBLIC        ?C?FPADD
+  C:0803H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+  C:08F8H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2021  13:07:54  PAGE 6
+
+
+
+  -------         MODULE        ?C?FPDIV
+  C:0A01H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:0AA8H         PUBLIC        ?C?FCASTC
+  C:0AA3H         PUBLIC        ?C?FCASTI
+  C:0A9EH         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:0ADCH         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?LNEG
+  C:0B5DH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0219H BYTE (26%) *
+******************************************************************************
+
+Program Size: data=14.0 xdata=25 code=1561
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

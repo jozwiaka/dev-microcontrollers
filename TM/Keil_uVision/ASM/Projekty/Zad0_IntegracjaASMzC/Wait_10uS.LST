@@ -1,0 +1,116 @@
+A51 MACRO ASSEMBLER  WAIT_10US                                                            05/06/2021 16:07:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN Wait_10uS.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Wait_10uS.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;Oznaczenie pamieci
+                       2     ;BIT, CODE, DATA, IDATA, XDATA, NUMBER
+                       3     
+                       4     ;Wejscie
+                       5     ;Arg Number               char, 1-byte ptr       int, 2-byte ptr                long, float
+                                                      generic ptr
+                       6     ;    1                          R7                   R6 & R7                       R4�R7 
+                                                          R1�R3
+                       7     ;                                             (MSB in R6,LSB in R7)           (MSB in R4,LS
+                             B in R7)      (Mem type in R3, MSB in R2, LSB in R1)
+                       8     ;    2                          R5                   R4 & R5                       R4�R7 
+                                                          R1�R3
+                       9     ;                                             (MSB in R4,LSB in R5)           (MSB in R4,LS
+                             B in R7)      (Mem type in R3, MSB in R2, LSB in R1)
+                      10     ;    3                          R3                   R2 & R3                     ----------
+                                                        R1�R3
+                      11     ;                                             (MSB in R2,LSB in R3)                        
+                                           (Mem type in R3, MSB in R2, LSB in R1)
+                      12     
+                      13     ;Wyjscie
+                      14     ;bit                                 - Carry bit
+                      15     ;char, unsigned char, 1-byte pointer - R7 
+                      16     ;int, unsigned int, 2-byte ptr       - R6 & R7 MSB in R6, LSB in R7. 
+                      17     ;long,  unsigned long                - R4-R7 MSB in R4, LSB in R7. 
+                      18     ;float R4-R7                         - 32-Bit IEEE format. 
+                      19     ;generic pointer                     - R1-R3 Memory type in R3, MSB R2, LSB R1. 
+                      20     
+                      21     ;Upublicznie (udostepnienie na zewnatrz) symbolu zwiazanego z procedura przyjmujaca argumen
+                             ty wejsciowe (wymaga uzupelnienia symbolu dodatkowym znakiem "podlogi")
+                      22                     PUBLIC  _WAIT_10US
+                      23                     PUBLIC  _LONG_PARAM_LIST
+                      24     ;Upublicznienie symbolu segmentu danych, wykorzystywanego do przekazywania argumentow wejsc
+                             iowych do funkcji LONG_PARAM_LIST
+                      25                     PUBLIC ?_LONG_PARAM_LIST?BYTE
+                      26                     
+                      27     ;Zdefiniowanie segmentu danych przeznaczonego do odeberania argumentow wejsiowych funkcji L
+                             ONG_PARAM_LIST
+                      28     DATSEG          SEGMENT DATA
+----                  29                     RSEG    DATSEG
+0000                  30                     ?_LONG_PARAM_LIST?BYTE:
+                      31     
+0000                  32                     DS 8
+                      33                                     
+                      34     PRGSEG  SEGMENT CODE
+----                  35                     RSEG    PRGSEG
+                      36     ;Definicja procedury realizujacej opoznienie czasowe
+0000                  37     _WAIT_10US:
+                      38     ; Odebranie argumentu wejsciowego podanego przy wywolaniu procedury
+0000 8F82             39                     MOV DPL,R7   ;Umieszcza mlodszy bajty argumentu wejsciowego w mlodszym bajc
+                             ie rejestru DPTR (DPL)
+0002 8E83             40                     MOV DPH,R6   ;Umieszcza starszy bajt argumentu wejsciowego w starszym bajci
+                             e rejestru DPTR (DPH)
+                      41     ;Petla opozniajaca wykorzystujaca wartosc rejestru DPTR jako zmienna iteracyjna            
+                                  
+0004                  42     WAIT_U:
+                      43     ; czterokrotne wykonanie instrukcji NOP, implementujce opoznienie 4us w celu zapewnienia op
+                             oznienia rownego 10us dla jednej iteracji petli
+0004 00               44                     NOP
+A51 MACRO ASSEMBLER  WAIT_10US                                                            05/06/2021 16:07:26 PAGE     2
+
+0005 00               45                     NOP
+0006 00               46                     NOP
+0007 00               47                     NOP
+                      48     ;Zwiekszenie DPTR o jeden
+0008 A3               49                     INC DPTR
+                      50     ;Przeslanie do akumulatora starszego bajtu DPTR-a
+0009 E583             51                     MOV A,DPH
+                      52     ;Wykonanie sumy logicznej miedzy akumulatorenm a mlodszym bajtem DPTR w celu przygotwania a
+                             kumulatora do sprawdzenia czy rejestr DPTR ulegl wyzerowaniu
+000B 4582             53                     ORL A,DPL
+                      54     ;Sprawdzenie niezerowego stanu rejestru DPTR poprzez weryfikacje stanu akumulatora ustalone
+                             go poprzednia instrukcja sumy logicznej
+                      55     ;Wykonanie skoku do kolejnej iteracji petli jesli akumulator jest rozny od zera (oparciu o 
+                             powyzsze instrukcji rowniez jesli DPTR jest rozny od zera)
+000D 70F5             56                     JNZ WAIT_U
+                      57     ;Powrot z procedury             
+000F 22               58                     RET
+                      59     ;Definicja funkcji otrzymujacej argumenty przez segment danych
+0010                  60     _LONG_PARAM_LIST:
+                      61     ;Umieszczenie w R7 (wyjsciu funkcji w przypadku zwracania wartosci jednobajtowej) najmlodsz
+                             ego bajtu drugiego argumentu podanego jako argument wejsciowy        
+0010 AF00     F       62                     MOV R7,?_LONG_PARAM_LIST?BYTE+7
+0012 22               63                     RET
+                      64     
+                      65                     END
+A51 MACRO ASSEMBLER  WAIT_10US                                                            05/06/2021 16:07:26 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                 T Y P E  V A L U E   ATTRIBUTES
+
+?_LONG_PARAM_LIST?BYTE  D ADDR   0000H   R   SEG=DATSEG
+DATSEG . . . . . . . .  D SEG    0008H       REL=UNIT
+DPH. . . . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . . . .  D ADDR   0082H   A   
+PRGSEG . . . . . . . .  C SEG    0013H       REL=UNIT
+WAIT_U . . . . . . . .  C ADDR   0004H   R   SEG=PRGSEG
+_LONG_PARAM_LIST . . .  C ADDR   0010H   R   SEG=PRGSEG
+_WAIT_10US . . . . . .  C ADDR   0000H   R   SEG=PRGSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

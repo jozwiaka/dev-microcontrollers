@@ -1,0 +1,23 @@
+08:55:51 **** Incremental Build of configuration Debug for project Zad3 ****
+make all 
+Building file: ../Main/main.c
+Invoking: MCU GCC Compiler
+C:\Studia\TM\STM32_projekty\Zad3\Debug
+arm-none-eabi-gcc  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F429ZITx -DVECT_TAB_SRAM -DUSE_STM32F429I_DISCO -DSTM32F429xx -DUSE_HAL_DRIVER -DSTM32F429I_DISC1 -DSTM32F4 -DSTM32 -DDEBUG -I"C:/Studia/TM/STM32_projekty/Zad3/Drivers/BSP" -I"C:/Studia/TM/STM32_projekty/Zad3/Drivers/CMSIS" -I"C:/Studia/TM/STM32_projekty/Zad3/Drivers/STM32F4xx_HAL_Driver" -I"C:/Studia/TM/STM32_projekty/Zad3/Drivers/Utils" -I"C:/Studia/TM/STM32_projekty/Zad3/Main" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"Main/main.d" -MT"Main/main.o" -o "Main/main.o" "../Main/main.c"
+Finished building: ../Main/main.c
+ 
+Building target: Zad3.elf
+Invoking: MCU G++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -L"C:\Studia\TM\STM32_projekty\Zad3\Drivers" -T"C:/Studia/TM/STM32_projekty/Zad3/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -fno-exceptions -fno-rtti -o "Zad3.elf" @"objects.list"  -lSTM32LIB_SOFTFP_RAMLINK -lm
+Finished building target: Zad3.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "Zad3.elf" "Zad3.bin"
+arm-none-eabi-size "Zad3.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6092	   1120	   2316	   9528	   2538	Zad3.elf
+ 
+
+08:55:53 Build Finished (took 1s.461ms)
+
